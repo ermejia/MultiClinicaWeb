@@ -1,0 +1,36 @@
+<div class="container col-md-5">
+  <div class="card">
+    <div class="card-header">
+      <h1 align="center">
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/3468/3468935.svg"
+          width="100"
+          height="100"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Available Doctors
+      </h1>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID Doctor</th>
+            <th>ID Employee</th>
+            <th>No. Collegiate</th>
+            <th>Speciality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of doctors | async">
+            <td>{{ doctor.idDoctor }}</td>
+            <td>{{ doctor.idEmpmloyee }}</td>
+            <td>{{ doctor.noCollegiate }}</td>
+            <td>{{ doctor.speciality }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

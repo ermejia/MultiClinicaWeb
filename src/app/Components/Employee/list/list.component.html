@@ -1,0 +1,52 @@
+<div class="container col-md-9" id="ListEmployee">
+  <div class="card">
+    <div class="card-header">
+      <h1 align="center">
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/2753/2753149.svg"
+          width="100"
+          height="100"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Clinic Employees
+      </h1>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Job</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>DPI</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Contact Phone</th>
+            <th>BirthDate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let employee of employees | async"
+            (click)="EditEmployee(employee.idEmpmloyee)"
+          >
+            <td>{{ employee.idEmpmloyee }}</td>
+            <td>{{ employee.job }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.surname }}</td>
+            <td>{{ employee.dpi }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.phone }}</td>
+            <td>{{ employee.contactphone }}</td>
+            <td>{{ employee.birthdate }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="AddEmployee()" class="btn btn-dark">New Employee</button>
+    </div>
+  </div>
+</div>

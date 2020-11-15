@@ -1,0 +1,160 @@
+<div align="center"></div>
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h1>
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/392/392953.svg"
+          width="400"
+          height="100"
+          alt=""
+        />Patient History
+      </h1>
+    </div>
+    <div class="card-body">
+      <form>
+        <div *ngFor="let history of history" class="form-row">
+          <div class="form-group col-md-4">
+            <label>DPI</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.dpi"
+              id="dpi"
+              name="dpi"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.name"
+              id="name"
+              name="name"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.surname"
+              id="surname"
+              name="surname"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-8">
+            <label>Address</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.address"
+              id="address"
+              name="address"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-2">
+            <label>Personal Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.phone"
+              id="phone"
+              name="phone"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-2">
+            <label>Familiar Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="history.patient.contactphone"
+              id="contactphone"
+              name="contactphone"
+              readonly
+            />
+          </div>
+
+          <div class="container col-md-10">
+            <div class="card-body">
+              <h4>Appointments</h4>
+              <table class="table table-bordered">
+                <thead class="table-info">
+                  <tr>
+                    <th>Appointment Clinic</th>
+                    <th>Appointment Time</th>
+                    <th>Appointment Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let clinic of history.allAppointments">
+                    <td>{{ clinic.clinic }}</td>
+                    <td>{{ clinic.dateAppointment }}</td>
+                    <td>{{ clinic.reason }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card-body">
+              <h4>Diagnostics</h4>
+              <table class="table table-bordered">
+                <thead class="table-warning">
+                  <tr>
+                    <th>Diagnostic No</th>
+                    <th>Doctor In Charge</th>
+                    <th>Prescribed Medicine</th>
+                    <th>Diagnostic Procedure</th>
+                    <th>Diagnostic Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let diagnostic of history.allDiagnostics">
+                    <td>{{ diagnostic.id }}</td>
+                    <td>{{ diagnostic.medic }}</td>
+                    <td>{{ diagnostic.medicine }}</td>
+                    <td>{{ diagnostic.procedure }}</td>
+                    <td>{{ diagnostic.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card-body">
+              <h4>Rooms</h4>
+              <table class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Room No</th>
+                    <th>Room Description</th>
+                    <th>Entry date</th>
+                    <th>Departure date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let room of history.allRooms">
+                    <td>{{ room.idRoom }}</td>
+                    <td>{{ room.RoomDescription }}</td>
+                    <td>{{ room.dateIn }}</td>
+                    <td>{{ room.dateOut }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

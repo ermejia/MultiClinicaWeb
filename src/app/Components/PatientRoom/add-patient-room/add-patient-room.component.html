@@ -1,0 +1,100 @@
+<div
+  *ngIf="alert"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Patient Added</strong> to the room!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div align="center">
+  <img
+    src="https://www.flaticon.es/svg/static/icons/svg/1364/1364834.svg"
+    width="500"
+    height="200"
+    alt=""
+  />
+</div>
+<div class="container col-md-5">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>Add Patient to Room</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Patient DPI</label>
+            <input
+              type="number"
+              class="form-control"
+              id="dpi"
+              required
+              [(ngModel)]="patientRoom.dpi"
+              name="dpi"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Room</label>
+            <select
+              class="form-control"
+              id="Job"
+              required
+              [(ngModel)]="patientRoom.idRoom"
+              name="Job"
+              required
+            >
+              <option
+                *ngFor="let room of rooms | async"
+                value="{{ room.idRoom }}"
+              >
+                {{ room.description }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date In</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dateIn"
+              required
+              [(ngModel)]="patientRoom.dateIn"
+              name="dateIn"
+              required
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          name="btn_create"
+          id="btn_create"
+          value="btn_create"
+        >
+          Add Patient
+        </button>
+        <button
+          type="submit"
+          (click)="gotoList()"
+          class="btn btn-dark"
+          name="return"
+          id="return"
+          value="return"
+          style="margin-left: 10px"
+        >
+          Return
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

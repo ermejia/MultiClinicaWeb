@@ -1,0 +1,110 @@
+<div
+  *ngIf="alertUpdate"
+  class="alert alert-info alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Clinic</strong> has been updated!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div
+  *ngIf="alertDelete"
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Clinic</strong> has been deleted!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div align="center">
+  <img
+    src="https://www.flaticon.es/svg/static/icons/svg/883/883337.svg"
+    width="500"
+    height="200"
+    alt=""
+  />
+</div>
+<div class="container col-md-5">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>Edit Clinic</h3>
+    </div>
+    <div *ngFor="let c of clinic" class="card-body">
+      <form ngNativeValidate>
+        <div class="form-row">
+          <div class="form-group col-md-5">
+            <label>Clinic Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameClinic"
+              required
+              [(ngModel)]="c.nameClinic"
+              name="nameClinic"
+              required
+            />
+          </div>
+          <div class="form-group col-md-7">
+            <label>Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="description"
+              required
+              [(ngModel)]="c.description"
+              name="description"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          class="btn btn-info"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+          value="btn_update"
+        >
+          Update
+        </button>
+        <button
+          type="submit"
+          (click)="deleteClinics()"
+          class="btn btn-danger"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+        >
+          Delete
+        </button>
+        <button
+          type="submit"
+          (click)="gotoList()"
+          class="btn btn-dark"
+          name="return"
+          id="return"
+          value="return"
+          style="margin-left: 10px"
+        >
+          Return
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

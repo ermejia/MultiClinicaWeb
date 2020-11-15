@@ -1,0 +1,133 @@
+<div
+  *ngIf="alert"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Medicine</strong> has been created!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div align="center">
+  <img
+    src="https://www.flaticon.es/svg/static/icons/svg/3101/3101052.svg"
+    width="500"
+    height="200"
+    alt=""
+  />
+</div>
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>New Medicine</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="medicine.name"
+              name="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Medicine Laboratory</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="medicine.lab"
+              name="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Admin Way</label>
+            <select
+              class="form-control"
+              id="idJob"
+              required
+              [(ngModel)]="medicine.adminway"
+              name="idJob"
+            >
+              <option value="Oral">Oral</option>
+              <option value="Topic">Topic</option>
+              <option value="Sublingual">Sublingual</option>
+              <option value="Transdermal">Transdermal</option>
+              <option value="Ophthalmological">Ophthalmological</option>
+              <option value="Inhalation">Inhalation</option>
+              <option value="Rectal">Rectal</option>
+              <option value="Intravenous">Intravenous</option>
+              <option value="Intramuscular">Intramuscular</option>
+              <option value="Subcutaneous">Subcutaneous</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="medicine.description"
+              name="name"
+            ></textarea>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Exp. Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="medicine.expirationdate"
+              name="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Lot Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="medicine.lots"
+              name="name"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          name="btn_create"
+          id="btn_create"
+          value="btn_create"
+        >
+          Save
+        </button>
+        <button
+          type="submit"
+          (click)="gotoList()"
+          class="btn btn-dark"
+          name="return"
+          id="return"
+          value="return"
+          style="margin-left: 10px"
+        >
+          Return
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1 align="center">
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/883/883337.svg"
+          width="100"
+          height="100"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Available Rooms
+      </h1>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id Room</th>
+            <th>Name</th>
+            <th>Total Beds</th>
+            <th>Beds Available</th>
+            <th>Room State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let room of rooms | async"
+            (click)="EditRoom(room.idRoom)"
+          >
+            <td>{{ room.idRoom }}</td>
+            <td>{{ room.description }}</td>
+            <td>{{ room.nuBed }}</td>
+            <td>{{ room.disponibles }}</td>
+            <td>{{ room.state }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="AddRoom()" class="btn btn-dark">New Room</button>
+    </div>
+  </div>
+</div>

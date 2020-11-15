@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header" align="center">
+      <h1>
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/3035/3035547.svg"
+          width="100"
+          height="100"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Inpatients
+      </h1>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>DPI Patient</th>
+            <th>Patient</th>
+            <th>Id Room</th>
+            <th>Room Description</th>
+            <th>Date In</th>
+            <th>Date Out</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let patientRoom of patientRooms | async"
+            (click)="EditPatientRoom(patientRoom.idPatientRoom)"
+          >
+            <td>{{ patientRoom.idPatientRoom }}</td>
+            <td>{{ patientRoom.dpi }}</td>
+            <td>{{ patientRoom.namePatient }}</td>
+            <td>{{ patientRoom.idRoom }}</td>
+            <td>{{ patientRoom.RoomDescription }}</td>
+            <td>{{ patientRoom.dateIn }}</td>
+            <td>{{ patientRoom.dateOut }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="AddPatientRoom()" class="btn btn-dark">
+        Add Patient
+      </button>
+    </div>
+  </div>
+</div>

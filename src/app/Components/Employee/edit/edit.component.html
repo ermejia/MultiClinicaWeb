@@ -1,0 +1,191 @@
+<div
+  *ngIf="alertUpdate"
+  class="alert alert-info alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Employee</strong> has been updated!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div
+  *ngIf="alertDelete"
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Employee</strong> has been deleted!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div align="center">
+  <img
+    src="https://www.flaticon.es/svg/static/icons/svg/2037/2037456.svg"
+    width="600"
+    height="300"
+    alt=""
+  />
+</div>
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>Edit Employee</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div *ngFor="let e of employee" class="form-row">
+          <div class="form-group col-md-4">
+            <label>DPI</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.dpi"
+              id="dpi"
+              name="dpi"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.name"
+              id="name"
+              name="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.surname"
+              id="surname"
+              name="surname"
+            />
+          </div>
+          <div class="form-group col-md-7">
+            <label>Address</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.address"
+              id="address"
+              name="address"
+            />
+          </div>
+          <div class="form-group col-md-2">
+            <label>Genre</label>
+            <select
+              class="form-control"
+              id="gender"
+              required
+              [(ngModel)]="e.gender"
+              name="gender"
+              required
+            >
+              <option value="M">Masculine</option>
+              <option value="F">Femenine</option>
+              <option value="O">Other</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Birth Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="birthdate"
+              required
+              [(ngModel)]="e.birthdate"
+              name="birthdate"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.phone"
+              id="phone"
+              name="phone"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Contact Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="e.contactphone"
+              id="contactphone"
+              name="contactphone"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Workstation</label>
+            <select
+              class="form-control"
+              id="Job"
+              required
+              [(ngModel)]="e.idJob"
+              name="Job"
+              required
+            >
+              <option
+                *ngFor="let job of jobs | async"
+                value="{{ job.idStall }}"
+              >
+                {{ job.stall }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          class="btn btn-info"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+          value="btn_update"
+        >
+          Update
+        </button>
+        <button
+          type="submit"
+          (click)="deleteEmployees()"
+          class="btn btn-danger"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+        >
+          Delete
+        </button>
+        <button
+          type="submit"
+          (click)="gotoList()"
+          class="btn btn-dark"
+          name="return"
+          id="return"
+          value="return"
+          style="margin-left: 10px"
+        >
+          Return
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

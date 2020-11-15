@@ -1,0 +1,163 @@
+<div
+  *ngIf="alertUpdate"
+  class="alert alert-info alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Medicine</strong> has been updated!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div
+  *ngIf="alertDelete"
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Medicine</strong> has been deleted!
+  <button
+    (click)="gotoList()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div align="center">
+  <img
+    src="https://www.flaticon.es/svg/static/icons/svg/3017/3017642.svg"
+    width="500"
+    height="200"
+    alt=""
+  />
+</div>
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h2>Edit Medicine</h2>
+    </div>
+    <div class="card-body">
+      <form>
+        <div *ngFor="let m of medicine" class="form-row">
+          <div class="form-group col-md-4">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="m.name"
+              name="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Medicine Laboratory</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lab"
+              required
+              [(ngModel)]="m.lab"
+              name="lab"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Admin Way</label>
+            <select
+              class="form-control"
+              id="adminway"
+              required
+              [(ngModel)]="m.adminway"
+              name="adminway"
+            >
+              <option value="Oral">Oral</option>
+              <option value="Topic">Topic</option>
+              <option value="Sublingual">Sublingual</option>
+              <option value="Transdermal">Transdermal</option>
+              <option value="Ophthalmological">Ophthalmological</option>
+              <option value="Inhalation">Inhalation</option>
+              <option value="Rectal">Rectal</option>
+              <option value="Intravenous">Intravenous</option>
+              <option value="Intramuscular">Intramuscular</option>
+              <option value="Subcutaneous">Subcutaneous</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="description"
+              required
+              [(ngModel)]="m.description"
+              name="description"
+            ></textarea>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Exp. Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="expirationdate"
+              required
+              [(ngModel)]="m.expirationdate"
+              name="expirationdate"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Lot Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lots"
+              required
+              [(ngModel)]="m.lots"
+              name="lots"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          class="btn btn-info"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+          value="btn_update"
+        >
+          Update
+        </button>
+        <button
+          type="submit"
+          (click)="deleteMedicine()"
+          class="btn btn-danger"
+          style="margin: 10px"
+          name="btn_update"
+          id="btn_create"
+        >
+          Delete
+        </button>
+        <button
+          type="submit"
+          (click)="gotoList()"
+          class="btn btn-dark"
+          name="return"
+          id="return"
+          value="return"
+          style="margin-left: 10px"
+        >
+          Return
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

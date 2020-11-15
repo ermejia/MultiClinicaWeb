@@ -1,0 +1,7 @@
+{
+  "/ClinicaWeb-1.0-SNAPSHOT/*": {
+    "target": "http://52.186.140.66:8080/",
+    "secure": false,
+    "loglevel": "debug"
+  }
+}
